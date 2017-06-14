@@ -19,5 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^messages', views.messages),
+    url(r'^messages$', views.getTodaysMessage),
+    url(r'^messages/([0-9]+)$', views.getMessageByDate),
 ]
