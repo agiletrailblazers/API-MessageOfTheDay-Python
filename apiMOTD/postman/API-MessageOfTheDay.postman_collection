@@ -1,0 +1,51 @@
+{
+	"id": "5400312c-d182-f160-89dc-e37fa27ae65a",
+	"name": "API-MessageOfTheDay",
+	"description": "",
+	"order": [
+		"6558148f-805a-9753-fdfa-757b343669ae",
+		"fbe761d1-2776-c376-87bc-44e382a6018f"
+	],
+	"folders": [],
+	"timestamp": 1436731751085,
+	"owner": "329957",
+	"public": false,
+	"requests": [
+		{
+			"id": "6558148f-805a-9753-fdfa-757b343669ae",
+			"headers": "",
+			"url": "http://{{url}}:{{port}}/motd/messages",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Message exists\"] = responseBody.has(\"message\");\ntests[\"Date exists\"] = responseBody.has(\"date\");\n\nvar jsonData = JSON.parse(responseBody);\n\npostman.setGlobalVariable(\"motd.date\", jsonData.date);\npostman.setGlobalVariable(\"motd.message\", jsonData.message);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464809300207,
+			"name": "Get message of the day",
+			"description": "An API to get the message of the day",
+			"collectionId": "5400312c-d182-f160-89dc-e37fa27ae65a",
+			"responses": []
+		},
+		{
+			"id": "fbe761d1-2776-c376-87bc-44e382a6018f",
+			"headers": "",
+			"url": "http://{{url}}:{{port}}/motd/messages/{{motd.date}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Correct date\"] = jsonData.date == postman.getGlobalVariable(\"motd.date\");\ntests[\"Correct message\"] = jsonData.message === postman.getGlobalVariable(\"motd.message\");\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464809309713,
+			"name": "Get message of the day by date",
+			"description": "An API to get the message of the day by date",
+			"collectionId": "5400312c-d182-f160-89dc-e37fa27ae65a",
+			"responses": []
+		}
+	]
+}

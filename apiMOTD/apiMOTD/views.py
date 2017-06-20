@@ -7,13 +7,13 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import messageDAO
 import datetime
+import time
 import json
 
 def getTodaysMessage(request):
-    today = datetime.date.today()
+    today = datetime.datetime.fromtimestamp(time.time())
     return JsonResponse(messageDAO.getMessage(today).__dict__)
 
 def getMessageByDate(request,dateString):
-    print dateString
     dayToGet = datetime.datetime.fromtimestamp(float(dateString)/1000.0)
     return JsonResponse(messageDAO.getMessage(dayToGet).__dict__)

@@ -1,4 +1,5 @@
 import datetime
+import time
 
 class Message(object):
 
@@ -7,7 +8,7 @@ class Message(object):
 
     def __init__(self, date, message):
         self.message = message
-        self.date = date
+        self.date = int((date - (datetime.datetime.utcfromtimestamp(0))).total_seconds() * 1000)
 
     def getMessage(self):
         return self.message
