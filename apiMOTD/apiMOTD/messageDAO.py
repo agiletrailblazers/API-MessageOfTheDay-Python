@@ -12,7 +12,7 @@ def getMessage(date):
     elif date.weekday() == 2: #Wednesday
         message = "Waiting for Wednesday"
     elif date.weekday() == 3: #Thursday
-        message = "Thursday's Child "
+        message = "Thursday's Child"
     elif date.weekday() == 4:#Friday
         message = "Friday I'm in Love"
     elif date.weekday() == 5: #Saturday

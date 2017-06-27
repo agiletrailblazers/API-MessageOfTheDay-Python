@@ -13,5 +13,5 @@ class Message(object):
     def getMessage(self):
         return self.message
 
-    def getDate(self):
+    def getEpochTime(self):
         return self.date

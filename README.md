@@ -14,6 +14,16 @@ Prerequisites:
 $> python manage.py runserver
 ```
 
+## Testing the API
+
+### Unit Testing
+Run the following command to run the suite of unit tests
+```
+$> python manange.py test
+```
+
+For more information on unit testing in Python and Django, see https://docs.djangoproject.com/en/1.11/topics/testing/
+
 ### Using the Postman Client
 1. Download and install the Postman client
 2. Import the test collection from this file
