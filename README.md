@@ -9,6 +9,12 @@ Prerequisites:
 * python 2.7.x (can be installed through brew on OSX)
 * pip (https://pip.pypa.io/en/stable/installing/)
 
+Run the following commands
+```
+$> pip install django
+$> pip install djangorestframework
+```
+
 ## Running the API
 ```
 $> python manage.py runserver
@@ -19,7 +25,7 @@ $> python manage.py runserver
 ### Unit Testing
 Run the following command to run the suite of unit tests
 ```
-$> python manange.py test
+$> python manage.py test
 ```
 
 For more information on unit testing in Python and Django, see https://docs.djangoproject.com/en/1.11/topics/testing/
